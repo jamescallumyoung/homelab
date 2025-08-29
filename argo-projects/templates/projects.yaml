@@ -14,5 +14,8 @@ spec:
     # Any other namespace or server is fine
     - namespace: '*'
       server: '*'
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
 ---
 {{- end }}
