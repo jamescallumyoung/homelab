@@ -1,0 +1,12 @@
+config:
+  spec:
+    destination:
+      server: https://kubernetes.default.svc # tells argo to install apps to the cluster argo is installed in
+    source:
+      repoURL: git@github.com:jamescallumyoung/homelab.git # this repo's url
+      targetRevision: main
+
+projects:
+  - name: example
+    applications:
+      - name: example-app

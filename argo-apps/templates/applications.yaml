@@ -1,0 +1,36 @@
+{{- $config := $.Values.config }}
+
+{{- range .Values.projects }}
+{{- $projectName := .name }}
+
+{{- range .applications }}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ .name | quote }}
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: {{ .namespace | default .name | quote }}
+    server: {{ $config.spec.destination.server | quote }}
+  project: {{ $projectName }}
+  source:
+    repoURL: {{ $config.spec.source.repoURL }}
+    targetRevision: {{ $config.spec.source.targetRevision }}
+    {{- $path := printf "projects/%s/apps/%s" $projectName .name }}
+    path: {{ .path | default $path | quote }}
+    {{- with .tool }}
+    {{- . | toYaml | nindent 4 }}
+    {{- end }}
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true
+---
+{{- end }}
+
+{{- end }}
