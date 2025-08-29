@@ -18,7 +18,7 @@ spec:
   project: {{ $projectName }}
   {{- if .source }}
   source:
-  {{- .source | toYaml | nindent 2 }}
+  {{- .source | toYaml | nindent 4 }}
   {{- else }}
   source:
     repoURL: {{ $config.spec.source.repoURL }}

@@ -13,3 +13,15 @@ projects:
   - name: selfhosted
     applications:
       - name: speedtest-tracker
+  - name: cluster-infra
+    applications:
+      - name: longhorn
+        namespace: longhorn-system
+        source:
+          chart: longhorn
+          repoURL: https://charts.longhorn.io/
+          targetRevision: v1.9.1
+          helm:
+            values: |
+              preUpgradeChecker:
+                jobEnabled: false

@@ -1,3 +1,4 @@
 projects:
   - name: example
   - name: selfhosted
+  - name: cluster-infra
