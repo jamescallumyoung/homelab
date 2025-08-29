@@ -10,3 +10,6 @@ projects:
   - name: example
     applications:
       - name: example-app
+  - name: selfhosted
+    applications:
+      - name: speedtest-tracker
