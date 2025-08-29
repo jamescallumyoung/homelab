@@ -16,6 +16,10 @@ spec:
     namespace: {{ .namespace | default .name | quote }}
     server: {{ $config.spec.destination.server | quote }}
   project: {{ $projectName }}
+  {{- if .source }}
+  source:
+  {{- .source | toYaml | nindent 2 }}
+  {{- else }}
   source:
     repoURL: {{ $config.spec.source.repoURL }}
     targetRevision: {{ $config.spec.source.targetRevision }}
@@ -24,6 +28,7 @@ spec:
     {{- with .tool }}
     {{- . | toYaml | nindent 4 }}
     {{- end }}
+  {{- end }}
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
