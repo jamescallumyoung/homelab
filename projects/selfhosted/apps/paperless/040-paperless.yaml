@@ -73,4 +73,4 @@ spec:
     - name: http
       port: 80
       targetPort: web-ui
-  type: LoadBalancer
+  type: ClusterIP
