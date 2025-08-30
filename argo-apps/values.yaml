@@ -18,6 +18,7 @@ projects:
 
   - name: cluster-infra
     applications:
+      - name: 1password-test
       - name: longhorn
         namespace: longhorn-system
         source:
