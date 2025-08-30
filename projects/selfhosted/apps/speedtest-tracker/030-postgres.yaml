@@ -35,11 +35,20 @@ spec:
             - containerPort: 5432
           env:
             - name: POSTGRES_DB
-              value: speedtest_tracker
+              valueFrom:
+                secretKeyRef:
+                  name: speedtest-tracker-options
+                  key: POSTGRES_DB
             - name: POSTGRES_USER
-              value: speedtest_user
+              valueFrom:
+                secretKeyRef:
+                  name: speedtest-tracker-options
+                  key: POSTGRES_USER
             - name: POSTGRES_PASSWORD
-              value: speedtest_password123
+              valueFrom:
+                secretKeyRef:
+                  name: speedtest-tracker-options
+                  key: POSTGRES_PASSWORD
           volumeMounts:
             - name: data
               mountPath: /var/lib/postgresql/data
