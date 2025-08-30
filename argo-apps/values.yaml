@@ -15,6 +15,11 @@ projects:
     applications:
       - name: paperless
       - name: speedtest-tracker
+      - name: stirling-pdf
+        source:
+          chart: stirling-pdf-chart
+          repoURL: https://stirling-tools.github.io/Stirling-PDF-chart
+          targetRevision: stirling-pdf-chart-2.1.0
 
   - name: cluster-infra
     applications:
