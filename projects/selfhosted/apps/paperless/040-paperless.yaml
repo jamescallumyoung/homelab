@@ -35,6 +35,8 @@ spec:
             - containerPort: 8000
               name: web-ui
           env:
+            - name: PAPERLESS_PORT # required since k8s would otherwise set this automatically to the svc's address
+              value: "8000"
             - name: PAPERLESS_REDIS
               value: redis://redis:6379
             - name: PAPERLESS_DBHOST
