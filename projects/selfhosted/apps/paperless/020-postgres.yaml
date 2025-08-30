@@ -35,11 +35,20 @@ spec:
             - containerPort: 5432
           env:
             - name: POSTGRES_DB
-              value: paperless
+              valueFrom:
+                secretKeyRef:
+                  name: paperless-options
+                  key: POSTGRES_DB
             - name: POSTGRES_USER
-              value: paperless
+              valueFrom:
+                secretKeyRef:
+                  name: paperless-options
+                  key: POSTGRES_USER
             - name: POSTGRES_PASSWORD
-              value: paperless
+              valueFrom:
+                secretKeyRef:
+                  name: paperless-options
+                  key: POSTGRES_PASSWORD
           volumeMounts:
             - name: data
               mountPath: /var/lib/postgresql/data

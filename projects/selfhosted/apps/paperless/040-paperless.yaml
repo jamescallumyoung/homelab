@@ -44,11 +44,20 @@ spec:
             - name: PAPERLESS_MEDIA_ROOT
               value: /mnt/data-media/media
             - name: PAPERLESS_ADMIN_USER
-              value: admin
+              valueFrom:
+                secretKeyRef:
+                  name: paperless-options
+                  key: PAPERLESS_ADMIN_USER
             - name: PAPERLESS_ADMIN_PASSWORD
-              value: admin
+              valueFrom:
+                secretKeyRef:
+                  name: paperless-options
+                  key: PAPERLESS_ADMIN_PASSWORD
             - name: PAPERLESS_AUTO_LOGIN_USERNAME
-              value: admin
+              valueFrom:
+                secretKeyRef:
+                  name: paperless-options
+                  key: PAPERLESS_AUTO_LOGIN_USERNAME
           volumeMounts:
             - name: data-media
               mountPath: /mnt/data-media
