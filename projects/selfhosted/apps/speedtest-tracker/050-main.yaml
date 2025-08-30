@@ -70,7 +70,7 @@ spec:
             - name: SPEEDTEST_SCHEDULE
               value: "4,7,14,17,24,27,34,37,44,47,54,57 * * * *"
             - name: SPEEDTEST_SERVERS
-              value: "6251,23969,64000"
+              value: "23723,28472,16402,49631,28045,16522,3930,31102,63415,54457" # see: https://c.speedtest.net/speedtest-servers-static.php
             - name: PUBLIC_DASHBOARD
               value: "true"
             - name: APP_DEBUG
