@@ -14,6 +14,7 @@ projects:
   - name: selfhosted
     applications:
       - name: speedtest-tracker
+      - name: paperless
 
   - name: cluster-infra
     applications:

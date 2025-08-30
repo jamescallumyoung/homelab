@@ -4,7 +4,7 @@ metadata:
   name: speedtest-tracker-config
 spec:
   accessModes:
-    - ReadWriteOnce # i.e. mount as RW on a single node
+    - ReadWriteOnce
   storageClassName: standard
   resources:
     requests:
