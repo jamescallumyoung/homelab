@@ -1,14 +1,11 @@
-
----
-
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: speedtest-tracker
+  name: speedtest-tracker-config
 spec:
   accessModes:
     - ReadWriteOnce # i.e. mount as RW on a single node
-  storageClassName: local-storage
+  storageClassName: standard
   resources:
     requests:
       storage: 2Gi
@@ -85,7 +82,7 @@ spec:
       volumes:
         - name: config
           persistentVolumeClaim:
-            claimName: speedtest-tracker
+            claimName: speedtest-tracker-config
 ---
 apiVersion: v1
 kind: Service

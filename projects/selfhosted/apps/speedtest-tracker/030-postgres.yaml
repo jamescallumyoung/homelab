@@ -5,7 +5,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce # i.e. mount as RW on a single node
-  storageClassName: local-storage
+  storageClassName: standard
   resources:
     requests:
       storage: 2Gi
