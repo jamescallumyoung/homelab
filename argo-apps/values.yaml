@@ -10,9 +10,11 @@ projects:
   - name: example
     applications:
       - name: example-app
+
   - name: selfhosted
     applications:
       - name: speedtest-tracker
+
   - name: cluster-infra
     applications:
       - name: longhorn
@@ -25,3 +27,4 @@ projects:
             values: |
               preUpgradeChecker:
                 jobEnabled: false
+      - name: longhorn-config
